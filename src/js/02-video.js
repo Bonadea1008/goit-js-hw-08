@@ -5,7 +5,7 @@ const iframe = document.querySelector('iframe');
 const player = new Player(iframe);
 const VIDEO_CURRENT_TIME = 'videoplayer-current-time';
 
-player.getVideoTitle().then(function (title) {
+player.getVideoTitle().then(title => {
   console.log('title:', title);
 });
 

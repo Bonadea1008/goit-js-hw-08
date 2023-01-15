@@ -27,8 +27,9 @@ function populateData() {
 
 function onFormSubmit(evt) {
   evt.preventDefault();
-  console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
-  evt.currentTarget.reset();
-
-  localStorage.removeItem(STORAGE_KEY);
+  if (formEmail.value.trim() !== '' || formEl.message.value.trim() !== '') {
+    console.log(JSON.parse(localStorage.getItem(STORAGE_KEY)));
+    evt.currentTarget.reset();
+    localStorage.removeItem(STORAGE_KEY);
+  }
 }
