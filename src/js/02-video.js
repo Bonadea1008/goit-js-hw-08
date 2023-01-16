@@ -11,9 +11,21 @@ player.getVideoTitle().then(title => {
 
 const onPlay = function (data) {
   const currentTime = data.seconds;
-  localStorage.setItem(VIDEO_CURRENT_TIME, currentTime);
+  if (currentTime) {
+    localStorage.setItem(VIDEO_CURRENT_TIME, currentTime);
+  }
 };
 
 player.on('timeupdate', throttle(onPlay, 1000));
 
-player.setCurrentTime(localStorage.getItem(VIDEO_CURRENT_TIME));
+player
+  .setCurrentTime(localStorage.getItem(VIDEO_CURRENT_TIME))
+  .then(seconds => {})
+  .catch(error => {
+    switch (error.name) {
+      case 'RangeError':
+        break;
+      default:
+        break;
+    }
+  });
