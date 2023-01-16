@@ -32,4 +32,5 @@ function onFormSubmit(evt) {
     evt.currentTarget.reset();
     localStorage.removeItem(STORAGE_KEY);
   }
+  return false;
 }

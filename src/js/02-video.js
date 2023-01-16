@@ -17,15 +17,22 @@ const onPlay = function (data) {
 };
 
 player.on('timeupdate', throttle(onPlay, 1000));
+populateTime();
 
-player
-  .setCurrentTime(localStorage.getItem(VIDEO_CURRENT_TIME))
-  .then(seconds => {})
-  .catch(error => {
-    switch (error.name) {
-      case 'RangeError':
-        break;
-      default:
-        break;
-    }
-  });
+function populateTime() {
+  if (localStorage.getItem(VIDEO_CURRENT_TIME)) {
+    player.setCurrentTime(localStorage.getItem(VIDEO_CURRENT_TIME));
+  }
+}
+
+// player
+//   .setCurrentTime(localStorage.getItem(VIDEO_CURRENT_TIME))
+//   .then(seconds => {})
+//   .catch(error => {
+//     switch (error.name) {
+//       case 'RangeError':
+//         break;
+//       default:
+//         break;
+//     }
+//   });
