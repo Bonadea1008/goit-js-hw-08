@@ -11,8 +11,9 @@ formEl.addEventListener('submit', onFormSubmit);
 
 populateData();
 
-function onFeedbackFormInput(evt) {
-  feedbackFormData[evt.target.name] = evt.target.value;
+function onFeedbackFormInput() {
+  feedbackFormData.email = formEmail.value;
+  feedbackFormData.message = formMessage.value;
   localStorage.setItem(STORAGE_KEY, JSON.stringify(feedbackFormData));
 }
 
@@ -32,5 +33,5 @@ function onFormSubmit(evt) {
     evt.currentTarget.reset();
     localStorage.removeItem(STORAGE_KEY);
   }
-  return false;
+  return;
 }
